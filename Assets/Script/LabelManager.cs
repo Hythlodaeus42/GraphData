@@ -11,7 +11,7 @@ public class LabelManager : MonoBehaviour {
 
         foreach (Transform childNode in this.transform)
         {
-            if (!childNode.name.StartsWith("Edge"))
+            if (!childNode.name.StartsWith("Edge") & !childNode.name.StartsWith("Layer"))
             {
                 childNode.GetComponentInChildren<Canvas>().enabled = showLabels;
             }

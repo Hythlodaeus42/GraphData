@@ -155,7 +155,8 @@ MonoBehaviour:
     type: 2}
   prefabNodeBusinessFunction: {fileID: 4036091980589840, guid: 8a21ce49c01a2ad4bb4825177220f81b,
     type: 2}
-  prefabNodeCDE: {fileID: 0}
+  prefabNodeCDE: {fileID: 4036091980589840, guid: c703cba9f344a7e4d8c3ff1a36d78c15,
+    type: 2}
   prefabNodeFile: {fileID: 4036091980589840, guid: 67942903678450a40a98d65b7c97c2cb,
     type: 2}
   prefabNodeSource: {fileID: 4036091980589840, guid: 99846bdc2a4edf142935adabc6af7a29,
@@ -163,6 +164,8 @@ MonoBehaviour:
   prefabNodeTable: {fileID: 4036091980589840, guid: 74c1e1b8467b6e94da68548db0aad54c,
     type: 2}
   prefabEdge: {fileID: 4483337126774992, guid: 51b0559f60de0a04e995fdd53521f02d, type: 2}
+  prefabLayer: {fileID: 224608388392013916, guid: 3cc3b44a54da1ea42901aa7b79516dc0,
+    type: 2}
 --- !u!114 &90482787
 MonoBehaviour:
   m_ObjectHideFlags: 0

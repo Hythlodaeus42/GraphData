@@ -12,6 +12,11 @@ public class LoadGraph : MonoBehaviour {
     public Transform prefabNodeSource;
     public Transform prefabNodeTable;
     public Transform prefabEdge;
+    public Transform prefabLayer;
+
+    private Transform graphTransform;
+    private float lastLayer = 999999f;
+
 
     // Use this for initialization
     void Start () {
@@ -35,7 +40,7 @@ public class LoadGraph : MonoBehaviour {
         string nodeName = "dummy";
         string nodeType = "Default"; 
 
-        Transform graphTransform = GameObject.Find("Graph").transform;
+        graphTransform = GameObject.Find("Graph").transform;
 
         foreach (string nodeRow in nodeRows)
         {
@@ -49,6 +54,12 @@ public class LoadGraph : MonoBehaviour {
             nodeName = rowAttributes[0].Trim();
             nodeType = rowAttributes[1].Trim();
 
+            // find min and max layers
+            if (x != lastLayer)
+            {
+                DrawLayer(x);
+                lastLayer = x;
+            }
 
 
             switch (nodeType)
@@ -112,8 +123,6 @@ public class LoadGraph : MonoBehaviour {
         //Color c1 = Color.yellow;
         //Color c2 = Color.red;
 
-        Transform graphTransform = GameObject.Find("Graph").transform;
-
         foreach (string edgeRow in edgeRows)
         {
             //Debug.Log(edgeRow.ToString());
@@ -168,6 +177,14 @@ public class LoadGraph : MonoBehaviour {
             //lineRenderer.colorGradient = gradient;
 
         }
+    }
+
+    void DrawLayer(float x)
+    {
+        Quaternion target = Quaternion.Euler(Camera.main.transform.rotation.x, 90, Camera.main.transform.rotation.z);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target, 1);
+
+        Instantiate(prefabLayer, new Vector3(x, 0, 0), transform.rotation, graphTransform);
     }
 
 	// Update is called once per frame
